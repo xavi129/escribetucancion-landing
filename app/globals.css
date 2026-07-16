@@ -1,0 +1,419 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  font-family: var(--font-body), system-ui, sans-serif;
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .pb-safe {
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+
+  .pt-safe {
+    padding-top: env(safe-area-inset-top);
+  }
+}
+
+@layer base {
+  :root {
+    --paper: #f3f0f7;
+    --paper-deep: #e6e0ed;
+    --ink: #1a1530;
+    --ink-soft: #2d2547;
+    --muted: #6b6485;
+    --cream: #ffffff;
+    --terracotta: #ff6b6b;
+    --terracotta-deep: #e04a4a;
+    --bordeaux: #a83264;
+    --forest: #5b4ce0;
+    --gold: #f4b860;
+    --radius-sm: 2px;
+    --radius-pill: 999px;
+
+    --background: 264 30% 95%;
+    --foreground: 253 39% 14%;
+    --card: 0 0% 100%;
+    --card-foreground: 253 39% 14%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 253 39% 14%;
+    --primary: 0 100% 71%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 246 70% 59%;
+    --secondary-foreground: 0 0% 100%;
+    --muted: 267 28% 90%;
+    --muted-foreground: 251 16% 46%;
+    --accent: 338 53% 43%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 265 26% 84%;
+    --input: 265 26% 84%;
+    --ring: 0 100% 71%;
+    --chart-1: 0 100% 71%;
+    --chart-2: 338 53% 43%;
+    --chart-3: 246 70% 59%;
+    --chart-4: 37 87% 67%;
+    --chart-5: 251 16% 46%;
+    --radius: 0.75rem;
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 222 47% 11%;
+    /* #0f172a */
+    --foreground: 0 0% 98%;
+    --card: 0 0% 3.9%;
+    --card-foreground: 0 0% 98%;
+    --popover: 0 0% 3.9%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 0 0% 98%;
+    --primary-foreground: 0 0% 9%;
+    --secondary: 0 0% 14.9%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 0 0% 14.9%;
+    --muted-foreground: 0 0% 63.9%;
+    --accent: 0 0% 14.9%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 14.9%;
+    --input: 0 0% 14.9%;
+    --ring: 0 0% 83.1%;
+    --chart-1: 220 70% 50%;
+    --chart-2: 160 60% 45%;
+    --chart-3: 30 80% 55%;
+    --chart-4: 280 65% 60%;
+    --chart-5: 340 75% 55%;
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html,
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+@layer components {
+  .brand-page {
+    background:
+      radial-gradient(circle at 18% 0%, rgba(255, 107, 107, 0.16), transparent 32rem),
+      radial-gradient(circle at 88% 12%, rgba(244, 184, 96, 0.14), transparent 34rem),
+      var(--paper);
+    color: var(--ink-soft);
+    font-family: var(--font-body), system-ui, sans-serif;
+  }
+
+  .brand-night {
+    background:
+      radial-gradient(circle at 12% 16%, rgba(255, 107, 107, 0.20), transparent 25rem),
+      radial-gradient(circle at 88% 8%, rgba(244, 184, 96, 0.08), transparent 32rem),
+      linear-gradient(135deg, var(--ink) 0%, var(--ink-soft) 100%);
+    color: var(--cream);
+  }
+
+  .brand-section {
+    background: var(--paper);
+    color: var(--ink-soft);
+  }
+
+  .brand-section-deep {
+    background: var(--paper-deep);
+    color: var(--ink-soft);
+  }
+
+  .brand-surface {
+    background: color-mix(in srgb, var(--cream) 88%, transparent);
+    border: 1px solid color-mix(in srgb, var(--forest) 18%, transparent);
+    color: var(--ink);
+    box-shadow: 0 24px 80px rgba(26, 21, 48, 0.1);
+  }
+
+  .brand-surface-night {
+    background: color-mix(in srgb, var(--ink-soft) 78%, transparent);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    color: var(--cream);
+    box-shadow: 0 28px 90px rgba(26, 21, 48, 0.28);
+  }
+
+  .brand-heading {
+    color: var(--ink);
+    font-family: var(--font-display), Georgia, serif;
+    font-weight: 650;
+    letter-spacing: 0;
+  }
+
+  .brand-heading-night {
+    color: var(--cream);
+    font-family: var(--font-display), Georgia, serif;
+    font-weight: 650;
+    letter-spacing: 0;
+  }
+
+  .brand-muted {
+    color: var(--muted);
+  }
+
+  .brand-kicker {
+    color: var(--terracotta);
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .brand-highlight {
+    background: linear-gradient(90deg, var(--terracotta), var(--bordeaux) 54%, var(--forest));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .brand-highlight-night {
+    background: linear-gradient(90deg, #ffd1d1, var(--terracotta), #d8d1ff);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .brand-cta {
+    background: var(--terracotta);
+    color: var(--cream);
+    border-radius: var(--radius-pill);
+    box-shadow: 0 18px 42px rgba(255, 107, 107, 0.34);
+  }
+
+  .brand-cta:hover {
+    background: var(--terracotta-deep);
+  }
+
+  .brand-cta-secondary {
+    background: rgba(255, 255, 255, 0.08);
+    color: var(--cream);
+    border: 1px solid rgba(255, 255, 255, 0.22);
+    border-radius: var(--radius-pill);
+  }
+
+  .brand-pill {
+    border-radius: var(--radius-pill);
+    border: 1px solid color-mix(in srgb, var(--forest) 22%, transparent);
+    background: color-mix(in srgb, var(--cream) 72%, transparent);
+  }
+
+  .brand-placeholder {
+    align-items: center;
+    background:
+      repeating-linear-gradient(135deg, var(--placeholder-bg), var(--placeholder-bg) 10px, var(--placeholder-stripe) 10px, var(--placeholder-stripe) 20px);
+    border-radius: var(--radius-sm);
+    color: var(--placeholder-text);
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+  }
+
+  .brand-placeholder span {
+    font-family: ui-monospace, "SF Mono", Menlo, monospace;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .brand-play-pill {
+    align-items: center;
+    border-radius: var(--radius-pill);
+    display: inline-flex;
+    font-weight: 600;
+    gap: 0.55rem;
+    letter-spacing: 0.01em;
+    padding: 0.55rem 0.85rem;
+  }
+
+  .brand-play-pill-icon {
+    align-items: center;
+    background: rgba(255, 255, 255, 0.18);
+    border-radius: 50%;
+    display: inline-flex;
+    height: 1.7rem;
+    justify-content: center;
+    width: 1.7rem;
+  }
+
+  .brand-stamp {
+    align-items: center;
+    border: 1.5px dashed currentColor;
+    border-radius: 50%;
+    display: inline-flex;
+    font-family: var(--font-hand), cursive;
+    font-weight: 700;
+    justify-content: center;
+    line-height: 0.95;
+    text-align: center;
+  }
+
+  .brand-section .text-white,
+  .brand-section-deep .text-white {
+    color: var(--ink);
+  }
+
+  .brand-section .text-slate-300,
+  .brand-section .text-slate-400,
+  .brand-section .text-slate-500,
+  .brand-section-deep .text-slate-300,
+  .brand-section-deep .text-slate-400,
+  .brand-section-deep .text-slate-500 {
+    color: var(--muted);
+  }
+
+  .brand-section .text-purple-400,
+  .brand-section .text-pink-400,
+  .brand-section .text-green-400,
+  .brand-section-deep .text-purple-400,
+  .brand-section-deep .text-pink-400,
+  .brand-section-deep .text-green-400 {
+    color: var(--terracotta);
+  }
+
+  .brand-section .bg-white\/5,
+  .brand-section .bg-white\/10,
+  .brand-section-deep .bg-white\/5,
+  .brand-section-deep .bg-white\/10 {
+    background-color: color-mix(in srgb, var(--cream) 74%, transparent);
+  }
+
+  .brand-section .border-white\/10,
+  .brand-section .border-white\/5,
+  .brand-section-deep .border-white\/10,
+  .brand-section-deep .border-white\/5 {
+    border-color: color-mix(in srgb, var(--forest) 16%, transparent);
+  }
+
+  .brand-section .brand-cta.text-white,
+  .brand-section-deep .brand-cta.text-white,
+  .brand-section .brand-cta-secondary.text-white,
+  .brand-section-deep .brand-cta-secondary.text-white {
+    color: var(--cream);
+  }
+}
+
+/* Estilos personalizados para react-phone-number-input */
+.phone-input-custom .PhoneInputInput {
+  @apply w-full rounded-md border-transparent bg-transparent px-3 py-2 text-sm text-white placeholder:text-slate-500 focus-visible:outline-none focus-visible:ring-0 disabled:cursor-not-allowed disabled:opacity-50;
+  background-color: transparent !important;
+  color: white !important;
+}
+
+.phone-input-custom .PhoneInputInput::placeholder {
+  color: rgb(148 163 184) !important;
+}
+
+.phone-input-custom .PhoneInputCountry {
+  @apply mr-2;
+}
+
+.phone-input-custom .PhoneInputCountryIcon {
+  border: none !important;
+}
+
+.phone-input-custom .PhoneInputCountrySelect {
+  @apply rounded-md border-transparent bg-transparent px-2 py-1 text-white;
+  background-color: transparent !important;
+  color: white !important;
+}
+
+.phone-input-custom .PhoneInputCountrySelectArrow {
+  @apply ml-1 opacity-50;
+  border-color: white !important;
+}
+
+/* Estilo cuando hay error */
+.phone-input-error .PhoneInputInput {
+  border-color: rgb(239 68 68) !important;
+}
+
+/* Animación shimmer para efectos de brillo */
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+.animate-shimmer {
+  animation: shimmer 2s infinite;
+}
+
+/* Border-3 personalizado */
+.border-3 {
+  border-width: 3px;
+}
+
+/* ===== Safari/iOS Animation Performance Optimizations ===== */
+
+/* GPU acceleration for animated elements - use on elements that scale/transform */
+.gpu-accelerated {
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+/* Optimized transition for selection buttons (instead of transition-all) */
+.transition-selection {
+  transition-property: transform, box-shadow, border-color, background-color;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
+/* Optimized transition for hover states */
+.transition-hover {
+  transition-property: background-color, border-color, color;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
+/* Optimized transition for text/color changes only */
+.transition-colors-fast {
+  transition-property: color, background-color;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 100ms;
+}
+
+/* Reduce motion for users who prefer it */
+@media (prefers-reduced-motion: reduce) {
+  .transition-selection,
+  .transition-hover,
+  .transition-colors-fast,
+  .animate-shimmer,
+  .animate-pulse {
+    animation: none !important;
+    transition: none !important;
+  }
+}
